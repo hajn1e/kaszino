@@ -35,13 +35,14 @@ namespace kaszino
 		static int blackJack(ref int penz)
 		{
 			Console.Clear();
-			kasz
 			bool jatek = true;
 			Console.WriteLine("Add meg a tétedet: ");
 			int tet = Convert.ToInt32(Console.ReadLine());
 			int pontok = HuzLapot() + HuzLapot();
+			int kaszinoPont = HuzLapot() + HuzLapot();
 			Console.WriteLine(pontok);
-			while (jatek)
+            Console.WriteLine(kaszinoPont);
+            while (jatek)
 			{
 				
                 Console.WriteLine("Szeretnél még húzni lapot? (hit/stand)");
@@ -50,13 +51,15 @@ namespace kaszino
 				if (valasz == "hit")
 				{
 					pontok= pontok + HuzLapot();
+					kaszinoPont = HuzLapot() + kaszinoPont;
                     Console.WriteLine(pontok);
+                    Console.WriteLine(kaszinoPont);
 
 					if (pontok > 21)
 					{
-                        Console.WriteLine("Vesztettél :(");
+						Console.WriteLine("Vesztettél :(");
 						jatek = false;
-                    }
+					}
 					
 
 				}
